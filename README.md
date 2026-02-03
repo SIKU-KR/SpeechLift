@@ -8,7 +8,7 @@
 
 ---
 
-## Why This Tool?
+### Why This Tool?
 
 | Problem | Solution |
 |---------|----------|
@@ -17,9 +17,7 @@
 | 🐌 Single API requests are slow | **10x parallel processing** for large videos |
 | ✂️ Naive splitting breaks sentences mid-word | **Silero VAD** splits at natural speech boundaries |
 
----
-
-## 🆚 Why This Tool Over Alternatives?
+### 🆚 Why This Tool Over Alternatives?
 
 | Tool | Approach | This Tool's Advantage |
 |------|----------|----------------------|
