@@ -17,15 +17,6 @@
 | 🐌 Single API requests are slow | **10x parallel processing** for large videos |
 | ✂️ Naive splitting breaks sentences mid-word | **Silero VAD** splits at natural speech boundaries |
 
-### 🆚 Why This Tool Over Alternatives?
-
-| Tool | Approach | This Tool's Advantage |
-|------|----------|----------------------|
-| [WhisperX](https://github.com/m-bain/whisperX) | Local model, complex setup | **Zero setup** — no GPU, no model downloads |
-| [faster-whisper](https://github.com/SYSTRAN/faster-whisper) | Local model, requires CUDA | **Works anywhere** — just Python + API key |
-| [whisper.cpp](https://github.com/ggml-org/whisper.cpp) | C++ compilation required | **Pure Python** — `pip install` and go |
-| [WhisperLive](https://github.com/collabora/WhisperLive) | Real-time focus | **Batch optimized** — 10x parallel for long videos |
-
 ### Key Differentiators
 
 - **☁️ API-Based** — Uses OpenAI's Whisper API, not local models. No GPU? No problem.
