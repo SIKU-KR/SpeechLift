@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Video-to-Text Transcriber - Setup Script
+# SpeechLift - Setup Script
 # Usage: source setup.sh
 #
 
@@ -22,7 +22,7 @@ WARN="[${YELLOW}!${NC}]"
 
 echo ""
 echo -e "${CYAN}╔══════════════════════════════════════════════════╗${NC}"
-echo -e "${CYAN}║${NC}   ${BOLD}Video-to-Text Transcriber - Setup${NC}              ${CYAN}║${NC}"
+echo -e "${CYAN}║${NC}   ${BOLD}SpeechLift - Setup${NC}              ${CYAN}║${NC}"
 echo -e "${CYAN}╚══════════════════════════════════════════════════╝${NC}"
 echo ""
 

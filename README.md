@@ -50,8 +50,8 @@
 
 ```bash
 # 1. Clone
-git clone https://github.com/yourusername/video-to-text-whisper.git
-cd video-to-text-whisper
+git clone https://github.com/SIKU-KR/SpeechLift.git
+cd SpeechLift
 
 # 2. Install (auto-creates virtual environment)
 source setup.sh
