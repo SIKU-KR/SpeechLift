@@ -16,6 +16,7 @@ from rich.progress import (
     BarColumn,
     TaskProgressColumn,
     TimeElapsedColumn,
+    TaskID,
 )
 from rich.prompt import Prompt, Confirm
 from rich.text import Text
@@ -25,7 +26,7 @@ from rich import box
 class RichProgressContext:
     """Progress context for Rich progress bars."""
 
-    def __init__(self, progress: Progress, task_id: int) -> None:
+    def __init__(self, progress: Progress, task_id: TaskID) -> None:
         self._progress = progress
         self._task_id = task_id
 
@@ -197,8 +198,9 @@ class RichUserInterface:
     @staticmethod
     def _format_file_size(size_bytes: int) -> str:
         """Format file size in human-readable format."""
+        size = float(size_bytes)
         for unit in ["B", "KB", "MB", "GB"]:
-            if size_bytes < 1024:
-                return f"{size_bytes:.1f} {unit}"
-            size_bytes /= 1024
-        return f"{size_bytes:.1f} TB"
+            if size < 1024:
+                return f"{size:.1f} {unit}"
+            size /= 1024
+        return f"{size:.1f} TB"

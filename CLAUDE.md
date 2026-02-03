@@ -17,30 +17,58 @@ python main.py
 
 # Activate existing venv for subsequent sessions
 source venv/bin/activate
+
+# Linting and type checking
+ruff check transcriber/ main.py
+mypy transcriber/ main.py --ignore-missing-imports
 ```
 
 ## Architecture
 
-The application is a single-file Python script (`main.py`) with the following processing pipeline:
+The codebase follows SOLID principles with a modular package structure. `main.py` is a minimal entry point that delegates to `transcriber.create_app()`.
+
+### Processing Pipeline
 
 1. **Audio Extraction**: FFmpeg extracts 16kHz mono WAV from video
 2. **VAD Analysis**: Silero VAD detects speech segments
-3. **Chunking**: Speech segments are merged into 8-15 second chunks at natural boundaries
-4. **Parallel Transcription**: Chunks are sent to Whisper API concurrently (up to 10 parallel requests with retry logic)
-5. **Assembly**: Transcriptions are ordered and saved to `<video_name>_transcription.txt`
+3. **Chunking**: Speech segments merged into 8-15 second chunks at natural boundaries
+4. **Parallel Transcription**: Up to 10 concurrent Whisper API requests with retry logic
+5. **Assembly**: Transcriptions ordered and saved to `<video_name>_transcription.txt`
 
-Key constants in `main.py`:
-- `MIN_CHUNK_DURATION` / `MAX_CHUNK_DURATION`: 8-15 seconds per chunk
-- `MAX_CONCURRENT_REQUESTS`: 10 parallel API calls
-- `MAX_RETRIES`: 3 attempts per chunk with exponential backoff
-- `COST_PER_MINUTE`: $0.006 (Whisper API pricing)
+### Package Structure
+
+```
+transcriber/
+├── __init__.py          # Factory function create_app() wires all dependencies
+├── orchestrator.py      # TranscriptionOrchestrator coordinates the workflow
+├── config/              # Settings dataclasses and API key management
+├── ui/                  # UserInterface and ProgressReporter protocols with Rich/plain implementations
+├── audio/               # AudioExtractor protocol and FFmpeg implementation
+├── vad/                 # VoiceActivityDetector protocol, Silero VAD, chunk merging
+├── transcription/       # Transcriber protocol and Whisper API implementation
+├── output/              # OutputWriter protocol and text file writer
+└── files/               # VideoFinder and TempDirectoryManager
+```
+
+### Key Design Patterns
+
+- **Dependency Injection**: `TranscriptionOrchestrator` receives all dependencies via constructor
+- **Protocol-based interfaces**: Each layer defines protocols (e.g., `UserInterface`, `AudioExtractor`) for loose coupling
+- **Factory pattern**: `create_app()` in `__init__.py` handles all wiring
+- **Graceful degradation**: Rich UI falls back to plain text if Rich library unavailable
+
+### Configuration
+
+Settings are immutable dataclasses in `transcriber/config/settings.py`:
+- `TranscriptionSettings`: chunk durations, concurrency, retries, cost per minute
+- `AppConfig`: config file path, video extensions, transcription settings
 
 ## Dependencies
 
 - **FFmpeg**: Required system dependency for audio extraction
 - **OpenAI API key**: Stored in `~/.video_transcriber_config.json` or `OPENAI_API_KEY` env var
-- **Python packages**: openai, silero-vad, torch, pydub, soundfile, rich (for CLI UI)
+- **Python packages**: openai, silero-vad, torch, pydub, soundfile, rich (optional for CLI UI)
 
 ## File Output
 
-Transcriptions are saved as `<video_name>_transcription.txt` in the same directory as the source video, with metadata header including timestamp and cost estimate.
+Transcriptions saved as `<video_name>_transcription.txt` in the same directory as the source video, with metadata header including timestamp and cost estimate.

@@ -13,7 +13,8 @@ __all__ = [
 
 # Conditionally export Rich implementations
 try:
-    from .rich_ui import RichUserInterface, RichProgressReporter
+    from .rich_ui import RichUserInterface as RichUserInterface
+    from .rich_ui import RichProgressReporter as RichProgressReporter
 
     __all__.extend(["RichUserInterface", "RichProgressReporter"])
 except ImportError:

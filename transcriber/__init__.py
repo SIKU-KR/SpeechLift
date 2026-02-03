@@ -27,10 +27,14 @@ def create_app(config: AppConfig | None = None) -> TranscriptionOrchestrator:
     Returns:
         A configured TranscriptionOrchestrator ready to run.
     """
+    from transcriber.ui.protocols import UserInterface, ProgressReporter
+
     if config is None:
         config = get_default_config()
 
     # Try to use Rich UI, fall back to plain UI
+    ui: UserInterface
+    progress: ProgressReporter
     try:
         from rich.console import Console
 
