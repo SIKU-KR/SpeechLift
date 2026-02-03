@@ -19,6 +19,27 @@
 
 ---
 
+## 🆚 Why This Tool Over Alternatives?
+
+| Tool | Approach | This Tool's Advantage |
+|------|----------|----------------------|
+| [WhisperX](https://github.com/m-bain/whisperX) | Local model, complex setup | **Zero setup** — no GPU, no model downloads |
+| [faster-whisper](https://github.com/SYSTRAN/faster-whisper) | Local model, requires CUDA | **Works anywhere** — just Python + API key |
+| [whisper.cpp](https://github.com/ggml-org/whisper.cpp) | C++ compilation required | **Pure Python** — `pip install` and go |
+| [WhisperLive](https://github.com/collabora/WhisperLive) | Real-time focus | **Batch optimized** — 10x parallel for long videos |
+
+### Key Differentiators
+
+- **☁️ API-Based** — Uses OpenAI's Whisper API, not local models. No GPU? No problem.
+- **⚡ Parallel Processing** — 10 concurrent API requests vs sequential processing
+- **💰 Cost Transparency** — See exact cost before you start (and only pay for speech!)
+- **📦 Single File** — One `main.py`, no complex architecture to understand
+- **🔌 Always Latest Model** — API updates automatically, no manual model updates
+
+> **TL;DR**: If you have an OpenAI API key and want transcription *now* without GPU setup, this is for you.
+
+---
+
 ## ✨ Features
 
 - 🎥 **Multiple Formats** — MP4, MKV, AVI, MOV, WebM, FLV, WMV
