@@ -36,18 +36,15 @@
 - **📦 Single File** — One `main.py`, no complex architecture to understand
 - **🔌 Always Latest Model** — API updates automatically, no manual model updates
 
-> **TL;DR**: If you have an OpenAI API key and want transcription *now* without GPU setup, this is for you.
+> If you have an OpenAI API key and want transcription *now* without GPU setup, this is for you.
 
----
+### 💡 Perfect For
 
-## ✨ Features
-
-- 🎥 **Multiple Formats** — MP4, MKV, AVI, MOV, WebM, FLV, WMV
-- 🧠 **Voice Activity Detection** — Silero VAD accurately detects speech segments
-- ⚡ **10x Faster** — 10 concurrent API requests
-- 💰 **Cost Preview** — See estimated cost before processing
-- 🌍 **99 Languages** — Auto-detects English, Spanish, Japanese, Korean, and more
-- 🎨 **Beautiful CLI** — Progress bars and clean terminal interface
+- 📚 **Students & Researchers** — Convert lecture recordings to searchable notes
+- 📝 **Content Creators** — Generate subtitle drafts for YouTube videos
+- 💼 **Professionals** — Turn meeting recordings into minutes
+- 📰 **Journalists** — Transcribe interviews instantly
+- 🎓 **Language Learners** — Read along with foreign language content
 
 ---
 
@@ -66,16 +63,6 @@ python main.py
 ```
 
 On first run, enter your OpenAI API key. → [Get your API key](https://platform.openai.com/api-keys)
-
----
-
-## 💡 Perfect For
-
-- 📚 **Students & Researchers** — Convert lecture recordings to searchable notes
-- 📝 **Content Creators** — Generate subtitle drafts for YouTube videos
-- 💼 **Professionals** — Turn meeting recordings into minutes
-- 📰 **Journalists** — Transcribe interviews instantly
-- 🎓 **Language Learners** — Read along with foreign language content
 
 ---
 
@@ -164,30 +151,14 @@ export OPENAI_API_KEY="sk-your-key-here"
 
 ---
 
-## 📁 Project Structure
-
-```
-video-to-text-whisper/
-├── main.py              # Main application
-├── setup.sh             # Setup script
-├── requirements.txt     # Python dependencies
-├── README.md
-└── LICENSE              # MIT License
-```
-
----
 
 ## 🤝 Contributing
 
 Contributions welcome! Feel free to submit bug reports, feature requests, or pull requests.
 
----
-
 ## 📄 License
 
 MIT License — free to use, modify, and distribute.
-
----
 
 <p align="center">
   <b>⭐ If you find this useful, please star the repo!</b>
