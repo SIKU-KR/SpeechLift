@@ -19,13 +19,13 @@ python main.py
 source venv/bin/activate
 
 # Linting and type checking
-ruff check transcriber/ main.py
-mypy transcriber/ main.py --ignore-missing-imports
+ruff check speechlift/ main.py
+mypy speechlift/ main.py --ignore-missing-imports
 ```
 
 ## Architecture
 
-The codebase follows SOLID principles with a modular package structure. `main.py` is a minimal entry point that delegates to `transcriber.create_app()`.
+The codebase follows SOLID principles with a modular package structure. `main.py` is a minimal entry point that delegates to `speechlift.create_app()`.
 
 ### Processing Pipeline
 
@@ -38,7 +38,7 @@ The codebase follows SOLID principles with a modular package structure. `main.py
 ### Package Structure
 
 ```
-transcriber/
+speechlift/
 ├── __init__.py          # Factory function create_app() wires all dependencies
 ├── orchestrator.py      # TranscriptionOrchestrator coordinates the workflow
 ├── config/              # Settings dataclasses and API key management
@@ -59,14 +59,14 @@ transcriber/
 
 ### Configuration
 
-Settings are immutable dataclasses in `transcriber/config/settings.py`:
+Settings are immutable dataclasses in `speechlift/config/settings.py`:
 - `TranscriptionSettings`: chunk durations, concurrency, retries, cost per minute
 - `AppConfig`: config file path, video extensions, transcription settings
 
 ## Dependencies
 
 - **FFmpeg**: Required system dependency for audio extraction
-- **OpenAI API key**: Stored in `~/.video_transcriber_config.json` or `OPENAI_API_KEY` env var
+- **OpenAI API key**: Stored in `~/.speechlift_config.json` or `OPENAI_API_KEY` env var
 - **Python packages**: openai, silero-vad, torch, pydub, soundfile, rich (optional for CLI UI)
 
 ## File Output

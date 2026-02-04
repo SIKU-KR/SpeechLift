@@ -8,7 +8,7 @@ from pathlib import Path
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from transcriber.ui.protocols import UserInterface
+    from speechlift.ui.protocols import UserInterface
 
 
 class ApiKeyManager:

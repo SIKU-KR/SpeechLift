@@ -1,4 +1,4 @@
-# 🎬 Video-to-Text Transcriber
+# 🎬 SpeechLift
 
 **Turn any video into text in minutes.** Fast, accurate transcription powered by OpenAI Whisper API with smart Voice Activity Detection.
 
@@ -118,7 +118,7 @@ Save transcription.txt
 
 On first run, choose how to save your key:
 
-1. **Config file** (recommended) — `~/.video_transcriber_config.json`
+1. **Config file** (recommended) — `~/.speechlift_config.json`
 2. **Shell profile** — Added to `.zshrc` or `.bashrc`
 3. **Session only** — Enter each time
 

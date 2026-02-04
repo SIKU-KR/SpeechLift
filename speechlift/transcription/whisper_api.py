@@ -9,8 +9,8 @@ from typing import TYPE_CHECKING, Callable
 from openai import AsyncOpenAI
 
 if TYPE_CHECKING:
-    from transcriber.config.settings import TranscriptionSettings
-    from transcriber.ui.protocols import ProgressReporter, UserInterface
+    from speechlift.config.settings import TranscriptionSettings
+    from speechlift.ui.protocols import ProgressReporter, UserInterface
 
 
 class WhisperAPITranscriber:

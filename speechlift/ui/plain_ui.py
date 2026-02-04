@@ -55,7 +55,7 @@ class PlainUserInterface:
     def display_header(self) -> None:
         """Display the application header."""
         print("=" * 50)
-        print("Video-to-Text Transcription (OpenAI Whisper)")
+        print("SpeechLift (OpenAI Whisper)")
         print("=" * 50)
 
     def display_error(self, message: str) -> None:

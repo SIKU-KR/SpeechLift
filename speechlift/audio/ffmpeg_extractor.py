@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from transcriber.ui.protocols import ProgressReporter, UserInterface
+    from speechlift.ui.protocols import ProgressReporter, UserInterface
 
 
 class FFmpegAudioExtractor:

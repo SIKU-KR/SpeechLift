@@ -79,7 +79,7 @@ class RichUserInterface:
         self._console.print()
         self._console.print(
             Panel(
-                "[bold]Video-to-Text Transcriber[/bold]\n"
+                "[bold]SpeechLift[/bold]\n"
                 "[dim]OpenAI Whisper API with VAD[/dim]",
                 border_style="cyan",
                 box=box.DOUBLE,

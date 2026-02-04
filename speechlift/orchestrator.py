@@ -10,16 +10,16 @@ from pathlib import Path
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from transcriber.audio.ffmpeg_extractor import FFmpegAudioExtractor
-    from transcriber.config.api_key import ApiKeyManager
-    from transcriber.config.settings import AppConfig
-    from transcriber.files.temp_manager import TempDirectoryManager
-    from transcriber.files.video_finder import VideoFinder
-    from transcriber.output.text_writer import TextFileWriter
-    from transcriber.transcription.whisper_api import WhisperAPITranscriber
-    from transcriber.ui.protocols import ProgressReporter, UserInterface
-    from transcriber.vad.chunking import ChunkMerger
-    from transcriber.vad.silero_vad import SileroVAD
+    from speechlift.audio.ffmpeg_extractor import FFmpegAudioExtractor
+    from speechlift.config.api_key import ApiKeyManager
+    from speechlift.config.settings import AppConfig
+    from speechlift.files.temp_manager import TempDirectoryManager
+    from speechlift.files.video_finder import VideoFinder
+    from speechlift.output.text_writer import TextFileWriter
+    from speechlift.transcription.whisper_api import WhisperAPITranscriber
+    from speechlift.ui.protocols import ProgressReporter, UserInterface
+    from speechlift.vad.chunking import ChunkMerger
+    from speechlift.vad.silero_vad import SileroVAD
 
 
 class TranscriptionOrchestrator:
@@ -121,7 +121,7 @@ class TranscriptionOrchestrator:
                     return
 
                 # Get total samples for merging
-                from transcriber.audio.utils import read_audio
+                from speechlift.audio.utils import read_audio
 
                 wav = read_audio(str(audio_path))
                 total_samples = len(wav)

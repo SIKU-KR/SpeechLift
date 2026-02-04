@@ -7,11 +7,11 @@ from typing import TYPE_CHECKING
 
 from silero_vad import get_speech_timestamps, load_silero_vad
 
-from transcriber.audio.utils import read_audio
-from transcriber.vad.protocols import SpeechSegment
+from speechlift.audio.utils import read_audio
+from speechlift.vad.protocols import SpeechSegment
 
 if TYPE_CHECKING:
-    from transcriber.ui.protocols import ProgressReporter
+    from speechlift.ui.protocols import ProgressReporter
 
 
 class SileroVAD:

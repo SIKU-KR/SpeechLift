@@ -7,11 +7,11 @@ from typing import TYPE_CHECKING
 
 from pydub import AudioSegment
 
-from transcriber.vad.protocols import SpeechSegment
+from speechlift.vad.protocols import SpeechSegment
 
 if TYPE_CHECKING:
-    from transcriber.config.settings import TranscriptionSettings
-    from transcriber.ui.protocols import UserInterface
+    from speechlift.config.settings import TranscriptionSettings
+    from speechlift.ui.protocols import UserInterface
 
 
 class ChunkMerger:

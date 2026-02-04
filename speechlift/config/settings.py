@@ -19,7 +19,7 @@ class TranscriptionSettings:
 class AppConfig:
     """Application-wide configuration."""
 
-    config_file: Path = field(default_factory=lambda: Path.home() / ".video_transcriber_config.json")
+    config_file: Path = field(default_factory=lambda: Path.home() / ".speechlift_config.json")
     video_extensions: frozenset[str] = field(
         default_factory=lambda: frozenset({".mp4", ".mkv", ".avi", ".mov", ".webm", ".flv", ".wmv"})
     )
